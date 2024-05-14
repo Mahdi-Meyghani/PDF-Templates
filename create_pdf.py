@@ -11,22 +11,28 @@ for index, row in df.iterrows():
 
     # Set the header
     pdf.set_font(family="Times", style="B", size=12)
-    pdf.set_text_color(100, 100, 100)
+    pdf.set_text_color(0, 0, 0)
     pdf.cell(w=0, h=12, txt=row["Topic"], ln=1, align="L")
 
-    pdf.line(x1=10, y1=20, x2=200, y2=20)
+    # Add the multiple lines
+    for i in range(20, 298, 10):
+        pdf.line(x1=10, y1=i, x2=200, y2=i)
 
     # Set the footer
-    pdf.ln(265)
+    pdf.ln(268)
     pdf.set_font(family="Times", style="I", size=8)
-    pdf.set_text_color(180, 180, 180)
+    pdf.set_text_color(100, 100, 100)
     pdf.cell(w=0, h=8, txt=row["Topic"], align="R")
 
     for i in range(row["Pages"] - 1):
         pdf.add_page()
 
+        # Add the multiple lines
+        for j in range(20, 298, 10):
+            pdf.line(x1=10, y1=j, x2=200, y2=j)
+
         # Set the footer
-        pdf.ln(277)
+        pdf.ln(280)
         pdf.set_font(family="Times", style="I", size=8)
         pdf.set_text_color(180, 180, 180)
         pdf.cell(w=0, h=8, txt=row["Topic"], align="R")
