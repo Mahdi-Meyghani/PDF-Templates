@@ -34,7 +34,7 @@ for index, row in df.iterrows():
         # Set the footer
         pdf.ln(280)
         pdf.set_font(family="Times", style="I", size=8)
-        pdf.set_text_color(180, 180, 180)
+        pdf.set_text_color(100, 100, 100)
         pdf.cell(w=0, h=8, txt=row["Topic"], align="R")
 
 pdf.output('output.pdf')
